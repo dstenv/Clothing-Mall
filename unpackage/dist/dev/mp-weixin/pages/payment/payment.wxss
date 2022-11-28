@@ -1,0 +1,52 @@
+
+.payment-type.data-v-031d9d14 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border-bottom: 2rpx solid #ddd;
+}
+.iconfont.data-v-031d9d14 {
+	font-size: 80rpx;
+}
+.payment-text.data-v-031d9d14 {
+	position: relative;
+	left: -20rpx;
+	width: 300rpx;
+}
+.payment-text text.data-v-031d9d14 {
+	display: block;
+}
+.type.data-v-031d9d14 {
+	font-size: 30rpx;
+	font-weight: bold;
+}
+.type-desc.data-v-031d9d14 {
+	font-size: 24rpx;
+	color: #8b8b8b;
+}
+.pay-foot.data-v-031d9d14 {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.total.data-v-031d9d14 {
+	flex: 1;
+	padding-left: 30rpx;
+	background-color: #000;
+	line-height: 100rpx;
+}
+.total-price.data-v-031d9d14 {
+	font-size: 32rpx;
+	color: #fff;
+}
+.go-pay.data-v-031d9d14 {
+	flex: none;
+	color: #fff;
+	padding: 0 70rpx;
+	line-height: 100rpx;
+}
+

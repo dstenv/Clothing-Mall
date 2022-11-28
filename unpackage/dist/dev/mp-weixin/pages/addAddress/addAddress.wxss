@@ -1,0 +1,63 @@
+
+.add.data-v-d114b534 {
+	padding: 0 20rpx 20rpx 20rpx;
+}
+.recievename.data-v-d114b534,
+.phone.data-v-d114b534,
+.detail-address.data-v-d114b534,
+.set-default.data-v-d114b534 {
+	display: flex;
+	align-items: center;
+	padding: 15rpx 0;
+	border-bottom: 2rpx solid #ddd;
+}
+.form-text.data-v-d114b534 {
+	font-size: 34rpx;
+	width: 150rpx;
+	white-space: nowrap;
+	text-align: justify;
+	text-justify: distribute-all-lines; /* 这行必加，兼容ie浏览器
+ */
+	text-align-last: justify;
+	flex: none;
+}
+.detail-path.data-v-d114b534 {
+	align-self: flex-start;
+}
+.input.data-v-d114b534 {
+	flex: 1;
+	padding-left: 25rpx;
+}
+.detail-area.data-v-d114b534 {
+	flex: 1;
+	padding-left: 25rpx;
+	height: 100rpx;
+}
+.set-default.data-v-d114b534 {
+	display: flex;
+	justify-content: space-between;
+}
+.default-text.data-v-d114b534 {
+	font-size: 34rpx;
+}
+.add-path.data-v-d114b534 {
+	width: 350rpx;
+	border: 2rpx solid #49BDFB;
+	text-align: center;
+	margin: 30rpx auto 0;
+	border-radius: 999px;
+	padding: 8rpx 0;
+}
+.sel-address.data-v-d114b534 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15rpx 0;
+	border-bottom: 2rpx solid #ddd;
+}
+.icon-shangjiantou.data-v-d114b534 {
+	font-size: 38rpx;
+	-webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+

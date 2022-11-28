@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "commod-list": "/components/common/CommodityList",
+    "card": "/components/common/Card",
+    "brank-info": "/components/common/brankInfo",
+    "number-box": "/components/uni/uni-number-box/uni-number-box"
+  }
+}

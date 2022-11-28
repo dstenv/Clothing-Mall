@@ -1,0 +1,21 @@
+
+.data-v-e4f41eca::-webkit-scrollbar {  
+    display: none;  
+    width: 0 !important;  
+    height: 0 !important;  
+    -webkit-appearance: none;  
+    background: transparent;
+}
+.shop-bg.data-v-e4f41eca {
+	width: 100%;
+	display: block;
+}
+.scroll-content.data-v-e4f41eca {
+	padding-top: 20rpx;
+	width: 100%;
+	white-space: nowrap;
+}
+.scroll-item.data-v-e4f41eca {
+	display: inline-block;
+}
+

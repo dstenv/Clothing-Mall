@@ -1,0 +1,109 @@
+
+.login-tel.data-v-b237504c {
+	width: 100vw;
+	height: 100vh;
+}
+.tel-main.data-v-b237504c {
+	padding: 0 40rpx;
+}
+.icon-chahao.data-v-b237504c {
+	font-size: 60rpx;
+	color: #000;
+}
+.icon-chahao-weixin.data-v-b237504c {
+	padding-top: 40rpx;
+}
+.close.data-v-b237504c {
+	padding-top: 40rpx;
+}
+.logo.data-v-b237504c {
+	padding-bottom: 100rpx;
+	display: flex;
+	justify-content: center;
+}
+.logo-app.data-v-b237504c {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 50rpx;
+}
+.logo-img.data-v-b237504c {
+	width: 500rpx;
+}
+.app.data-v-b237504c {
+	width: 450rpx;
+}
+.text.data-v-b237504c {
+	width: 100%;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	color: #fff;
+	background-color: #49bdfb;
+	border-radius: 999px;
+}
+.login-to.data-v-b237504c {
+	margin-top: 20rpx;
+	text-align: center;
+}
+.login-to text.data-v-b237504c {
+	display: block;
+	text-align: center;
+}
+.to.data-v-b237504c {
+	position: relative;
+	top: 40rpx;
+}
+.icon-xiajiantou.data-v-b237504c,
+.icon-shangjiantou.data-v-b237504c{
+	font-size: 60rpx;
+}
+.icon-xiajiantou.data-v-b237504c::before {
+	color: #000;
+}
+.icon-shangjiantou.data-v-b237504c::before {
+	color: #000;
+}
+.register-top.data-v-b237504c {
+	display: flex;
+	justify-content: space-between;
+}
+.register-go.data-v-b237504c {
+	text-align: center;
+}
+.register-go-app.data-v-b237504c {
+	padding-top: 40rpx;
+}
+.register-go-weixin.data-v-b237504c {
+	padding-top: 40rpx;
+}
+.register-text.data-v-b237504c {
+	position: relative;
+	top: -40rpx;
+}
+.register-form.data-v-b237504c {
+	padding-top: 180rpx;
+}
+.form-user.data-v-b237504c {
+	font-size: 32rpx;
+	display: flex;
+	align-items: baseline;
+	border-bottom: 2rpx solid #ddd;
+	padding-bottom: 10rpx;
+	margin-bottom: 20rpx;
+}
+.form-user input.data-v-b237504c {
+	flex: 1;
+	padding-left: 20rpx;
+	font-size: 30rpx;
+}
+.register-quick.data-v-b237504c {
+	display: flex;
+	justify-content: space-between;
+	padding: 10rpx 0;
+}
+.reminder.data-v-b237504c {
+	text-align: center;
+	padding-top: 10rpx;
+	color: #b3b3b3;
+}
+

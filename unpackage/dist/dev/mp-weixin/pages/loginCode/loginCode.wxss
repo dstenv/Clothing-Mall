@@ -1,0 +1,59 @@
+
+.login-tel.data-v-9883a498 {
+	width: 100vw;
+	height: 100vh;
+}
+.tel-main.data-v-9883a498 {
+	padding: 0 40rpx;
+}
+.form-user.data-v-9883a498 {
+	font-size: 32rpx;
+	display: flex;
+	align-items: baseline;
+	border-bottom: 2rpx solid #ddd;
+	padding: 20rpx 0;
+	margin-bottom: 20rpx;
+}
+.form-text.data-v-9883a498 {
+	width: 100rpx;
+	white-space: nowrap;
+	text-align: justify;
+	text-justify: distribute-all-lines; /* 这行必加，兼容ie浏览器
+ */
+	text-align-last: justify;
+	flex: none;
+}
+.form-user input.data-v-9883a498 {
+	flex: 1;
+	padding-left: 20rpx;
+	display: flex;
+	font-size: 30rpx;
+}
+.text.data-v-9883a498 {
+	width: 100%;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	color: #fff;
+	background-color: #49bdfb;
+	border-radius: 999px;
+}
+.time-text.data-v-9883a498 {
+	display: inline-block;
+	padding: 2rpx 20rpx;
+	border: 2rpx solid #acacac;
+	border-radius: 999px;
+	pointer-events: none;
+	color: #acacac;
+}
+.keydown.data-v-9883a498 {
+	pointer-events: auto;
+	border: 2rpx solid #000;
+	color: #000;
+}
+.reminder.data-v-9883a498 {
+	font-size: 24rpx;
+	display: block;
+	padding-bottom: 10rpx;
+}
+

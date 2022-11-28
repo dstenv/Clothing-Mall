@@ -1,0 +1,31 @@
+
+.login-tel.data-v-7fad1240 {
+	width: 100vw;
+	height: 100vh;
+}
+.tel-main.data-v-7fad1240 {
+	padding: 0 40rpx;
+}
+.form-user.data-v-7fad1240 {
+	font-size: 32rpx;
+	display: flex;
+	align-items: baseline;
+	border-bottom: 2rpx solid #ddd;
+	padding: 20rpx 0;
+	margin-bottom: 20rpx;
+}
+.form-user input.data-v-7fad1240 {
+	flex: 1;
+	padding-left: 20rpx;
+	font-size: 30rpx;
+}
+.text.data-v-7fad1240 {
+	width: 100%;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	color: #fff;
+	background-color: #49bdfb;
+	border-radius: 999px;
+}
+

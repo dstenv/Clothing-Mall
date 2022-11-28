@@ -1,0 +1,35 @@
+
+.orther-text.data-v-57b53db8 {
+	display: flex;
+	justify-content: center;
+	margin-top: 100rpx;
+	padding: 50rpx 0;
+}
+.orther-text view.data-v-57b53db8 {
+	line-height: 0rpx;
+	padding: 0 10rpx;
+}
+.orther-text.data-v-57b53db8::after {
+	content: '';
+	flex: 1;
+	height: 2rpx;
+	background-color: #CCCCCC;
+}
+.orther-text.data-v-57b53db8::before {
+	content: '';
+	flex: 1;
+	height: 2rpx;
+	background-color: #CCCCCC;
+}
+.orther-type.data-v-57b53db8 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.type-item.data-v-57b53db8 {
+	text-align: center;
+}
+.iconfont.data-v-57b53db8 {
+	font-size: 60rpx;
+}
+

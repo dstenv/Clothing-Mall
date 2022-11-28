@@ -1,0 +1,42 @@
+
+.good-title.data-v-6da8aab4 {
+	display: flex;
+	padding-bottom: 10rpx;
+}
+.title-item.data-v-6da8aab4 {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.title-icon.data-v-6da8aab4,
+.collect.data-v-6da8aab4{
+	position: relative;
+	padding-left: 10rpx;
+}
+.title-icon.data-v-6da8aab4 {
+	top: -16rpx;
+}
+.collect.data-v-6da8aab4 {
+	top: -12rpx;
+}
+.iconfont.data-v-6da8aab4 {
+	width: 16rpx;
+	height: 8rpx;
+	margin-bottom: 8rpx;
+}
+.res-list.data-v-6da8aab4 {
+	padding: 20rpx;
+}
+.icon-shuqian.data-v-6da8aab4 {
+	font-size: 24rpx;
+}
+.no-data.data-v-6da8aab4 {
+	overflow: hidden;
+}
+.no-data image.data-v-6da8aab4 {
+	width: 400rpx;
+	display: block;
+	margin: 150rpx auto 0;
+}
+

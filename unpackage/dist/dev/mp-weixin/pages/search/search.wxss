@@ -1,0 +1,25 @@
+
+.box.data-v-4cedc0c6 {
+	padding: 20rpx;
+}
+.title.data-v-4cedc0c6 {
+	display: flex;
+}
+.moment-top.data-v-4cedc0c6 {
+	justify-content: space-between;
+}
+.hot-search.data-v-4cedc0c6 {
+}
+.name.data-v-4cedc0c6 {
+	padding: 4rpx 24rpx;
+	background-color: #E1E1E1;
+	display: inline-block;
+	border-radius: 999px;
+	margin: 10rpx;
+}
+.no-search.data-v-4cedc0c6 {
+	text-align: center;
+	padding: 10rpx;
+	letter-spacing: 2rpx;
+}
+

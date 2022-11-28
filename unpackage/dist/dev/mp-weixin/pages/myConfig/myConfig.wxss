@@ -1,0 +1,22 @@
+
+.config-box.data-v-79dcb374 {
+	margin-bottom: 20rpx;
+}
+.config-item.data-v-79dcb374 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 20rpx;
+	border-bottom: 2rpx solid #CCCCCC;
+}
+.icon-shangjiantou.data-v-79dcb374 {
+	font-size: 40rpx;
+	-webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+.exit.data-v-79dcb374 {
+	padding: 15rpx 0;
+	text-align: center;
+	color: #fff;
+}
+

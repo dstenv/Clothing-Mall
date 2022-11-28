@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni/uni-nav-bar/uni-nav-bar",
+    "number-box": "/components/uni/uni-number-box/uni-number-box",
+    "tabbar": "/common/tabbar"
+  }
+}

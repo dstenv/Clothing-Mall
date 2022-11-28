@@ -1,0 +1,62 @@
+
+.address.data-v-df1cd6d0 {
+	overflow: hidden;
+}
+.add-path.data-v-df1cd6d0 {
+	width: 350rpx;
+	border: 2rpx solid #49BDFB;
+	text-align: center;
+	margin: 30rpx auto 0;
+	border-radius: 999px;
+	padding: 8rpx 0;
+}
+.path-item.data-v-df1cd6d0 {
+	display: flex;
+	justify-content: space-between;
+	padding: 20rpx 0 10rpx 20rpx;
+	border-bottom: 2rpx solid #CCCCCC;
+}
+.info-path.data-v-df1cd6d0 {
+	width: calc(100% - 160rpx);
+}
+.delete-path.data-v-df1cd6d0 {
+	width: 0;
+	transition: width .2s ease-in-out;
+	color: #fff;
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.delete-btn.data-v-df1cd6d0 {
+	width: 150rpx;
+	letter-spacing: 3rpx;
+	/* font-size: 34rpx; */
+}
+.btn-text.data-v-df1cd6d0{
+	visibility: hidden;
+}
+.recievename.data-v-df1cd6d0 {
+	margin-right: 20rpx;
+}
+.address-name.data-v-df1cd6d0 {
+	display: flex;
+	padding-top: 10rpx;
+}
+.default.data-v-df1cd6d0 {
+	color: #fff;
+	padding: 2rpx 30rpx;
+	border-radius: 999px;
+	-webkit-transform: scale(.8);
+	        transform: scale(.8);
+	position: relative;
+	left: -10rpx;
+}
+.path.data-v-df1cd6d0 {
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+

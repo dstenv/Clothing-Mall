@@ -1,0 +1,13 @@
+
+.card.data-v-3879f0e9 {
+	display: flex;
+	justify-content: center;
+	padding: 20rpx 0;
+	font-weight: bold;
+	align-items: center;
+}
+.card-name.data-v-3879f0e9 {
+	padding: 0 20rpx;
+	font-size: 32rpx;
+}
+

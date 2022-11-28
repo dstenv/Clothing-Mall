@@ -1,0 +1,16 @@
+
+.icons.data-v-5167dc45 {
+	display: flex;
+	flex-wrap: wrap;
+}
+.icons-item.data-v-5167dc45 {
+	width: 25%;
+	text-align: center;
+	padding-top: 20rpx;
+}
+.icons-img.data-v-5167dc45 {
+	width: 100rpx;
+	margin: 0 auto;
+	display: block;
+}
+

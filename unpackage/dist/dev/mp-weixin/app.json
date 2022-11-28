@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/404/404",
+    "pages/list/list",
+    "pages/shopbag/shopbag",
+    "pages/my/my",
+    "pages/search/search",
+    "pages/searchRes/searchRes",
+    "pages/detail/detail",
+    "pages/brankDetail/brankDetail",
+    "pages/myConfig/myConfig",
+    "pages/myAddress/myAddress",
+    "pages/addAddress/addAddress",
+    "pages/baiduMap/baiduMap",
+    "pages/my-order/my-order",
+    "pages/confirmOrder/confirmOrder",
+    "pages/payment/payment",
+    "pages/login/login",
+    "pages/loginTelphone/loginTelphone",
+    "pages/loginCode/loginCode"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#636263",
+    "selectedColor": "#636263",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "spacing": "8px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/shopbag/shopbag",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": ""
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {}
+}

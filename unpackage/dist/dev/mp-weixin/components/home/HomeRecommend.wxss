@@ -1,0 +1,27 @@
+
+.recommend.data-v-06bbd970 {
+	padding: 20rpx;
+}
+.recommend-item.data-v-06bbd970 {
+	display: flex;
+	flex-direction: column;
+	border-radius: 20rpx;
+	/* border: 2rpx solid #CCCCCC; */
+	overflow: hidden;
+	margin: 20rpx 0;
+}
+.item-big.data-v-06bbd970 {
+	width: 100%;
+	display: block;
+	/* height: 300rpx; */
+}
+.item-small.data-v-06bbd970 {
+	width: 100%;
+	height: 240rpx;
+}
+.item-img.data-v-06bbd970 {
+	width: calc(100% / 3);
+	outline: none;
+	/* height: 240rpx; */
+}
+

@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "百年奥莱",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "swiper-component": "/components/swiper/SwiperComponent",
+    "home-recommend": "/components/home/HomeRecommend",
+    "card": "/components/common/Card",
+    "commodity-list": "/components/common/CommodityList",
+    "banner": "/components/home/Banner",
+    "icons": "/components/home/Icons",
+    "hot": "/components/home/Hot",
+    "shop": "/components/home/Shop",
+    "tabbar": "/common/tabbar",
+    "myline": "/components/common/Line"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新增地址",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "city-piker": "/components/uni/mpvue-citypicker/mpvueCityPicker"
+  }
+}

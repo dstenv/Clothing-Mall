@@ -1,0 +1,115 @@
+
+.confirm-order.data-v-048afac6 {
+}
+.path.data-v-048afac6 {
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20rpx;
+}
+.path-info.data-v-048afac6 {
+	flex: 1;
+	padding: 0 30rpx;
+}
+.path-user.data-v-048afac6 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.recievename.data-v-048afac6 {
+	font-size: 30rpx;
+	font-weight: bold;
+}
+.path-address.data-v-048afac6 {
+	width: 540rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.iconfont.data-v-048afac6 {
+	flex: none;
+	font-size: 45rpx;
+}
+.icon-shangjiantou.data-v-048afac6 {
+	-webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+.confirm-item.data-v-048afac6 {
+	background-color: #fff;
+	margin: 10rpx;
+	border: 2rpx solid #ddd;
+}
+.brank.data-v-048afac6 {
+	display: flex;
+	align-items: center;
+}
+.brank image.data-v-048afac6 {
+	width: 80rpx;
+	border-radius: 50%;
+	outline: none;
+}
+.brank text.data-v-048afac6 {
+	margin-left: 10rpx;
+}
+.freight.data-v-048afac6 {
+	display: flex;
+	justify-content: space-between;
+	background-color: #fff;
+	padding: 20rpx 10rpx;
+	border-bottom: 2rpx solid #ddd;
+}
+.message.data-v-048afac6 {
+	display: flex;
+	padding: 20rpx 10rpx;
+	align-items: center;
+	border-bottom: 2rpx solid #ddd;
+}
+.message input.data-v-048afac6 {
+	font-size: 28rpx;
+}
+.confirm-count.data-v-048afac6 {
+	display: flex;
+	padding: 20rpx 10rpx;
+	justify-content: flex-end;
+	align-items: baseline;
+}
+.f-active-color.data-v-048afac6 {
+	font-size: 24rpx;
+}
+.confirm-price.data-v-048afac6 {
+	font-size: 36rpx;
+}
+.footer-control.data-v-048afac6 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	background-color: #fff;
+	/* padding: 40rpx 0; */
+	align-items: center;
+	justify-content: flex-end;
+}
+.total-text.data-v-048afac6 {
+	color: #000;
+}
+.footer-total.data-v-048afac6 {
+	font-size: 20rpx;
+	margin-right: 20rpx;
+	display: flex;
+	align-items: center;
+}
+.footer-total text.data-v-048afac6 {
+	font-size: 28rpx;
+}
+.footer-total .total-price.data-v-048afac6{
+	font-size: 40rpx;
+	position: relative;
+	top: -5rpx;
+}
+.footer-jiesuan.data-v-048afac6 {
+	padding: 30rpx 60rpx;
+	color: #fff;
+}
+
