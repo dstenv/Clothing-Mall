@@ -18,7 +18,9 @@
     "pages/payment/payment",
     "pages/login/login",
     "pages/loginTelphone/loginTelphone",
-    "pages/loginCode/loginCode"
+    "pages/loginCode/loginCode",
+    "pages/pay-success/pay-success",
+    "pages/wxMap/wxMap"
   ],
   "subPackages": [],
   "window": {
@@ -52,6 +54,13 @@
       }
     ]
   },
-  "permission": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前位置用于排列展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
   "usingComponents": {}
 }

@@ -53,10 +53,28 @@
 	left: -10rpx;
 }
 .path.data-v-df1cd6d0 {
-	flex: 1;
+	/* flex: 1; */
+	width: 600rpx;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	transition: width .2s ease-in-out;
 }
-
+.edit-path.data-v-df1cd6d0 {
+	transition: none;
+	width: 450rpx;
+}
+.control-wx.data-v-df1cd6d0 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 30rpx;
+}
+.add-path-wx.data-v-df1cd6d0 {
+	width: 350rpx;
+	border: 2rpx solid #49BDFB;
+	text-align: center;
+	border-radius: 999px;
+	padding: 8rpx 0;
+}
 

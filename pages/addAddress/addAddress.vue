@@ -32,6 +32,16 @@
 		</view>
 		<!-- #endif -->
 		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="sel-address" @tap="goWxMap">
+			<view class="form-text">
+				选择地址
+			</view>
+			<text>{{selAddress}}</text>
+			<view v-if="!selAddress" class="iconfont icon-shangjiantou"></view>
+		</view>
+		<!-- #endif -->
+		
 		<view class="detail-address">
 			<view class="form-text detail-path">
 				详细地址
@@ -46,11 +56,11 @@
 				<radio :checked="isDefault" @tap="changeDefault"/>
 			</label>
 		</view>
-		<view class="add-path f-active-color" @tap="Add" v-show="!path_id">
+		<view class="add-path f-active-color" @tap="Add" v-show="path_id == 'undefined' || !path_id">
 			添加地址
 		</view>
 		
-		<view class="add-path f-active-color" @tap="Update" v-show="path_id">
+		<view class="add-path f-active-color" @tap="Update" v-show="path_id != 'undefined' && path_id">
 			保存地址
 		</view>
 		
@@ -90,13 +100,12 @@
 			}
 		},
 		onBackPress(event) {
-			// console.log(event)
+			console.log(event)
 			uni.removeStorageSync('formData')
 		},
 		onLoad(event) {
-			console.log(event)
 			this.path_id = event.id
-			if(this.path_id != undefined) {
+			if(this.path_id != 'undefined' && this.path_id != undefined ) {
 				// 说明是修改地址
 				console.log('修改地址')
 				uni.setNavigationBarTitle({
@@ -104,9 +113,9 @@
 				})
 				let storageAddress = ''
 				const data = uni.getStorageSync('formData')
-				// console.log(data)
+				console.log(data)
 				storageAddress = data.address
-				console.log(storageAddress)
+				// console.log(storageAddress)
 				if(!storageAddress) {
 					http.request({
 						url: '/address/find/one',
@@ -139,8 +148,8 @@
 			}
 			this.selAddress = event.address
 			// console.log(this.selAddress)
-			
 			if(this.selAddress) {
+			console.log('没有修改地址')
 				uni.getStorage({
 					key:'formData',
 					success: (res) => {
@@ -159,6 +168,7 @@
 				this.isDefault = !this.isDefault
 			},
 			Add() {
+				
 				http.request({
 					url: '/address/add',
 					method:'POST',
@@ -207,8 +217,31 @@
 				})
 			},
 			goMap(){
+				
+				uni.setStorageSync('formData',{
+					recieveName: this.recieveName,
+					phone: this.phone,
+					detailPath: this.detailPath,
+					address: this.selAddress,
+					isDefault: this.isDefault
+				})
+				// console.log('报存storage',uni.getStorageSync('formData'))
+				
 				uni.redirectTo({
 					url:'/pages/baiduMap/baiduMap?path_id=' + this.path_id
+				})
+			},
+			goWxMap() {
+				uni.setStorageSync('formData',{
+					recieveName: this.recieveName,
+					phone: this.phone,
+					detailPath: this.detailPath,
+					address: this.selAddress,
+					isDefault: this.isDefault
+				})
+				// console.log('报存storage',uni.getStorageSync('formData'))
+				uni.redirectTo({
+					url:'/pages/wxMap/wxMap?path_id=' + this.path_id
 				})
 			},
 			showCityPiker() {
@@ -278,7 +311,16 @@
 	padding: 15rpx 0;
 	border-bottom: 2rpx solid #ddd;
 }
-
+.sel-address text {
+	/* display: inline-block; */
+	display: -webkit-box;
+	width: 500rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-align: end;
+}
 	
 .icon-shangjiantou {
 	font-size: 38rpx;

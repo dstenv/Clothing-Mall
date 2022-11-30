@@ -37,6 +37,9 @@
 				loginStatus: state => state.user.loginStatus
 			})
 		},
+		onShow() {
+			uni.removeStorageSync('formData')
+		},
 		methods: {
 			...mapMutations(['loginOut']),
 			Functions(name) {

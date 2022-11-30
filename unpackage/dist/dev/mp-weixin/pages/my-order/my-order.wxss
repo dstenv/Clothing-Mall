@@ -64,6 +64,7 @@ to {
 	justify-content: center;
 }
 .no-order.data-v-143b2126 {
+	margin-top: 200rpx;
 	text-align: center;
 }
 .no-order-home.data-v-143b2126 {

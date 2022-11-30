@@ -12,7 +12,7 @@
 					</view>
 					<view class="address-name">
 						<text v-if="item.isdefault == 1" class="default bg-color">默认</text>
-						<view class="path">
+						<view class="path" :class="{'edit-path': isEdit}">
 							{{item.address}} {{item.detailaddress}}
 						</view>
 					</view>
@@ -22,9 +22,18 @@
 				</view>
 			</view>
 		</view>
+		<!-- #ifndef MP-WEIXIN -->
 		<view class="add-path f-active-color" @tap="goAdd">
 			新增地址
 		</view>
+		<!-- #endif -->
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="control-wx">
+			<text></text>
+			<text class="add-path-wx f-active-color" @tap="goAdd">新增地址</text>
+			<text class="edit-wx" @tap="isEdit = !isEdit">编辑</text>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -44,6 +53,9 @@
 			if(event.text === '编辑') {
 				this.isEdit = !this.isEdit
 			}
+		},
+		onShow() {
+			uni.removeStorageSync('formData')
 		},
 		activated() {
 			http.request({
@@ -82,7 +94,7 @@
 			},
 			changeAddress(id,data) {
 				if(!this.isFromConfirm) {
-					uni.redirectTo({
+					uni.navigateTo({
 						url: '/pages/addAddress/addAddress?id=' + id
 					})
 				}else {
@@ -162,10 +174,29 @@
 	left: -10rpx;
 }
 .path {
-	flex: 1;
+	/* flex: 1; */
+	width: 600rpx;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	transition: width .2s ease-in-out;
+}
+.edit-path {
+	transition: none;
+	width: 450rpx;
 }
 
+.control-wx {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 30rpx;
+}
+.add-path-wx {
+	width: 350rpx;
+	border: 2rpx solid #49BDFB;
+	text-align: center;
+	border-radius: 999px;
+	padding: 8rpx 0;
+}
 </style>

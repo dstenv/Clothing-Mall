@@ -19,7 +19,8 @@
         /* 模块配置 */
         "modules" : {
             "Geolocation" : {},
-            "Maps" : {}
+            "Maps" : {},
+            "Share" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -53,7 +54,12 @@
             },
             /* SDK配置 */
             "sdkConfigs" : {
-                "share" : {},
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wx045c3d8cb29cdde0",
+                        "UniversalLinks" : ""
+                    }
+                },
                 "maps" : {
                     "amap" : {
                         "appkey_ios" : "a",
@@ -77,12 +83,18 @@
     "mp-weixin" : {
         "appid" : "wx045c3d8cb29cdde0",
         "setting" : {
-            "urlCheck" : false,
+            "urlCheck" : true,
             "es6" : true,
             "postcss" : true
         },
         "usingComponents" : true,
-        "permission" : {}
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "获取当前位置用于排列展示"
+            }
+        },
+		// 微信小程序开启定位 应用在app时需删除
+		"requiredPrivateInfos": ["getLocation"]
     },
     "mp-alipay" : {
         "usingComponents" : true

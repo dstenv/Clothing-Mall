@@ -1,0 +1,68 @@
+
+.wx-map.data-v-800b6204 {
+	overflow: hidden;
+	position: relative;
+}
+.address-inp.data-v-800b6204 {
+	display: block;
+	outline: none;
+	border: 2rpx solid #ddd;
+	width: 650rpx;
+	box-sizing: border-box;
+	padding-left: 30rpx;
+	margin: 20rpx auto;
+	height: 80rpx;
+	border-radius: 999px;
+}
+.submit-address.data-v-800b6204 {
+	width: 500rpx;
+	margin: 0 auto;
+	margin-top: 50rpx;
+	text-align: center;
+	border-radius: 999px;
+	color: #fff;
+	padding: 20rpx 0;
+}
+.search-list.data-v-800b6204 {
+	position: absolute;
+	left: 0;
+	width: calc(100% - 50rpx);
+	padding-left: 50rpx;
+	top: 120rpx;
+	background-color: #fff;
+	max-height: 600rpx;
+	overflow: auto;
+	z-index: 99;
+}
+.search-item.data-v-800b6204 {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20rpx 10rpx 20rpx 0;
+}
+.search-top.data-v-800b6204 {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.name.data-v-800b6204 {
+	width: 500rpx;
+	display: inline-block;
+	font-size: 34rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.search-distance.data-v-800b6204 {
+	font-size: 24rpx;
+	color: #8f8f8f;
+}
+.search-address.data-v-800b6204 {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 24rpx;
+	color: #8f8f8f;
+}
+

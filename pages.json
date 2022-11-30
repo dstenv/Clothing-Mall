@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "百年奥莱",
+				"navigationBarTitleText": "优衣服饰",
 				"navigationBarBackgroundColor": "#ffffff",
 				// 开启自定义顶部导航栏
 				"navigationStyle": "custom",
@@ -325,6 +325,14 @@
                 "enablePullDownRefresh": false
             }
             
+        }
+        ,{
+            "path" : "pages/wxMap/wxMap",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
         }
     ],
 	"globalStyle": {

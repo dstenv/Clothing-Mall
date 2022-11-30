@@ -1,5 +1,6 @@
 
 .confirm-order.data-v-048afac6 {
+	overflow-y: auto;
 }
 .path.data-v-048afac6 {
 	background-color: #fff;
@@ -81,7 +82,7 @@
 	font-size: 36rpx;
 }
 .footer-control.data-v-048afac6 {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;

@@ -2667,7 +2667,33 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 119:
+/***/ 12:
+/*!******************************************************!*\
+  !*** E:/HbuilderX/Project/projectOne/store/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));
+
+
+
+
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 14));
+var _user = _interopRequireDefault(__webpack_require__(/*! ./modules/user.js */ 15));
+var _order = _interopRequireDefault(__webpack_require__(/*! ./modules/order.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}_vue.default.use(_vuex.default);var _default =
+
+new _vuex.default.Store({
+  modules: {
+    cart: _cart.default,
+    user: _user.default,
+    order: _order.default } });exports.default = _default;
+
+/***/ }),
+
+/***/ 120:
 /*!*****************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/common/map.js ***!
   \*****************************************************/
@@ -2688,30 +2714,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.mymap = my
     document.head.appendChild(script);
   });
 }
-
-/***/ }),
-
-/***/ 12:
-/*!******************************************************!*\
-  !*** E:/HbuilderX/Project/projectOne/store/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));
-
-
-
-
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 14));
-var _user = _interopRequireDefault(__webpack_require__(/*! ./modules/user.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}_vue.default.use(_vuex.default);var _default =
-
-new _vuex.default.Store({
-  modules: {
-    cart: _cart.default,
-    user: _user.default } });exports.default = _default;
 
 /***/ }),
 
@@ -3972,18 +3974,18 @@ module.exports = index_cjs;
 
 /***/ }),
 
-/***/ 136:
+/***/ 137:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 137);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 138);
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -4014,7 +4016,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 138);
+module.exports = __webpack_require__(/*! ./runtime */ 139);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -4031,7 +4033,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -4907,6 +4909,696 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
+/***/ 16:
+/*!**************************************************************!*\
+  !*** E:/HbuilderX/Project/projectOne/store/modules/order.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  state: {
+    orderId: '' },
+
+  getters: {},
+  mutations: {
+    initOrder: function initOrder(state, orderId) {
+      state.orderId = orderId;
+    } },
+
+  actions: {} };exports.default = _default;
+
+/***/ }),
+
+/***/ 188:
+/*!*************************************************************!*\
+  !*** E:/HbuilderX/Project/projectOne/common/amap-wx.130.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function AMapWX(a) {
+  this.key = a.key;
+  this.requestConfig = {
+    key: a.key,
+    s: "rsx",
+    platform: "WXJS",
+    appname: a.key,
+    sdkversion: "1.2.0",
+    logversion: "2.0" };
+
+  this.MeRequestConfig = {
+    key: a.key,
+    serviceName: "https://restapi.amap.com/rest/me" };
+
+}
+AMapWX.prototype.getWxLocation = function (a, b) {
+  wx.getLocation({
+    type: "gcj02",
+    success: function success(c) {
+      c = c.longitude + "," + c.latitude;
+      wx.setStorage({
+        key: "userLocation",
+        data: c });
+
+      b(c);
+    },
+    fail: function fail(c) {
+      wx.getStorage({
+        key: "userLocation",
+        success: function success(d) {
+          d.data && b(d.data);
+        } });
+
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getMEKeywordsSearch = function (a) {
+  if (!a.options) return a.fail({
+    errCode: "0",
+    errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });
+
+  var b = a.options,
+  c = this.MeRequestConfig,
+  d = {
+    key: c.key,
+    s: "rsx",
+    platform: "WXJS",
+    appname: a.key,
+    sdkversion: "1.2.0",
+    logversion: "2.0" };
+
+  b.layerId && (d.layerId = b.layerId);
+  b.keywords && (d.keywords = b.keywords);
+  b.city && (d.city = b.city);
+  b.filter && (d.filter = b.filter);
+  b.sortrule && (d.sortrule = b.sortrule);
+  b.pageNum && (d.pageNum = b.pageNum);
+  b.pageSize && (d.pageSize = b.pageSize);
+  b.sig && (d.sig =
+  b.sig);
+  wx.request({
+    url: c.serviceName + "/cpoint/datasearch/local",
+    data: d,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(e) {
+      (e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({
+        errCode: "0",
+        errMsg: e });
+
+    },
+    fail: function fail(e) {
+      a.fail({
+        errCode: "0",
+        errMsg: e.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getMEIdSearch = function (a) {
+  if (!a.options) return a.fail({
+    errCode: "0",
+    errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });
+
+  var b = a.options,
+  c = this.MeRequestConfig,
+  d = {
+    key: c.key,
+    s: "rsx",
+    platform: "WXJS",
+    appname: a.key,
+    sdkversion: "1.2.0",
+    logversion: "2.0" };
+
+  b.layerId && (d.layerId = b.layerId);
+  b.id && (d.id = b.id);
+  b.sig && (d.sig = b.sig);
+  wx.request({
+    url: c.serviceName + "/cpoint/datasearch/id",
+    data: d,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(e) {
+      (e = e.data) && e.status && "1" === e.status &&
+      0 === e.code ? a.success(e.data) : a.fail({
+        errCode: "0",
+        errMsg: e });
+
+    },
+    fail: function fail(e) {
+      a.fail({
+        errCode: "0",
+        errMsg: e.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getMEPolygonSearch = function (a) {
+  if (!a.options) return a.fail({
+    errCode: "0",
+    errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });
+
+  var b = a.options,
+  c = this.MeRequestConfig,
+  d = {
+    key: c.key,
+    s: "rsx",
+    platform: "WXJS",
+    appname: a.key,
+    sdkversion: "1.2.0",
+    logversion: "2.0" };
+
+  b.layerId && (d.layerId = b.layerId);
+  b.keywords && (d.keywords = b.keywords);
+  b.polygon && (d.polygon = b.polygon);
+  b.filter && (d.filter = b.filter);
+  b.sortrule && (d.sortrule = b.sortrule);
+  b.pageNum && (d.pageNum = b.pageNum);
+  b.pageSize && (d.pageSize = b.pageSize);
+  b.sig && (d.sig = b.sig);
+  wx.request({
+    url: c.serviceName + "/cpoint/datasearch/polygon",
+    data: d,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(e) {
+      (e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({
+        errCode: "0",
+        errMsg: e });
+
+    },
+    fail: function fail(e) {
+      a.fail({
+        errCode: "0",
+        errMsg: e.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getMEaroundSearch = function (a) {
+  if (!a.options) return a.fail({
+    errCode: "0",
+    errMsg: "\u7F3A\u5C11\u5FC5\u8981\u53C2\u6570" });
+
+  var b = a.options,
+  c = this.MeRequestConfig,
+  d = {
+    key: c.key,
+    s: "rsx",
+    platform: "WXJS",
+    appname: a.key,
+    sdkversion: "1.2.0",
+    logversion: "2.0" };
+
+  b.layerId && (d.layerId = b.layerId);
+  b.keywords && (d.keywords = b.keywords);
+  b.center && (d.center = b.center);
+  b.radius && (d.radius = b.radius);
+  b.filter && (d.filter = b.filter);
+  b.sortrule && (d.sortrule = b.sortrule);
+  b.pageNum && (d.pageNum = b.pageNum);
+  b.pageSize && (
+  d.pageSize = b.pageSize);
+  b.sig && (d.sig = b.sig);
+  wx.request({
+    url: c.serviceName + "/cpoint/datasearch/around",
+    data: d,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(e) {
+      (e = e.data) && e.status && "1" === e.status && 0 === e.code ? a.success(e.data) : a.fail({
+        errCode: "0",
+        errMsg: e });
+
+    },
+    fail: function fail(e) {
+      a.fail({
+        errCode: "0",
+        errMsg: e.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getGeo = function (a) {
+  var b = this.requestConfig,
+  c = a.options;
+  b = {
+    key: this.key,
+    extensions: "all",
+    s: b.s,
+    platform: b.platform,
+    appname: this.key,
+    sdkversion: b.sdkversion,
+    logversion: b.logversion };
+
+  c.address && (b.address = c.address);
+  c.city && (b.city = c.city);
+  c.batch && (b.batch = c.batch);
+  c.sig && (b.sig = c.sig);
+  wx.request({
+    url: "https://restapi.amap.com/v3/geocode/geo",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(d) {
+      (d = d.data) && d.status && "1" === d.status ? a.success(d) : a.fail({
+        errCode: "0",
+        errMsg: d });
+
+    },
+    fail: function fail(d) {
+      a.fail({
+        errCode: "0",
+        errMsg: d.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getRegeo = function (a) {
+  function b(d) {
+    var e = c.requestConfig;
+    wx.request({
+      url: "https://restapi.amap.com/v3/geocode/regeo",
+      data: {
+        key: c.key,
+        location: d,
+        extensions: "all",
+        s: e.s,
+        platform: e.platform,
+        appname: c.key,
+        sdkversion: e.sdkversion,
+        logversion: e.logversion },
+
+      method: "GET",
+      header: {
+        "content-type": "application/json" },
+
+      success: function success(g) {
+        if (g.data.status && "1" == g.data.status) {
+          g = g.data.regeocode;
+          var h = g.addressComponent,
+          f = [],
+          k = g.roads[0].name + "\u9644\u8FD1",
+          m = d.split(",")[0],
+          n = d.split(",")[1];
+          if (g.pois &&
+          g.pois[0]) {
+            k = g.pois[0].name + "\u9644\u8FD1";
+            var l = g.pois[0].location;
+            l && (m = parseFloat(l.split(",")[0]), n = parseFloat(l.split(",")[1]));
+          }
+          h.provice && f.push(h.provice);
+          h.city && f.push(h.city);
+          h.district && f.push(h.district);
+          h.streetNumber && h.streetNumber.street && h.streetNumber.number ? (f.push(h.
+          streetNumber.street), f.push(h.streetNumber.number)) : f.push(g.roads[0].
+          name);
+          f = f.join("");
+          a.success([{
+            iconPath: a.iconPath,
+            width: a.iconWidth,
+            height: a.iconHeight,
+            name: f,
+            desc: k,
+            longitude: m,
+            latitude: n,
+            id: 0,
+            regeocodeData: g }]);
+
+        } else a.fail({
+          errCode: g.data.infocode,
+          errMsg: g.data.info });
+
+      },
+      fail: function fail(g) {
+        a.fail({
+          errCode: "0",
+          errMsg: g.errMsg || "" });
+
+      } });
+
+  }
+  var c = this;
+  a.location ? b(a.location) : c.getWxLocation(a, function (d) {
+    b(d);
+  });
+};
+AMapWX.prototype.getWeather = function (a) {
+  function b(g) {
+    var h = "base";
+    a.type && "forecast" == a.type && (h = "all");
+    wx.request({
+      url: "https://restapi.amap.com/v3/weather/weatherInfo",
+      data: {
+        key: d.key,
+        city: g,
+        extensions: h,
+        s: e.s,
+        platform: e.platform,
+        appname: d.key,
+        sdkversion: e.sdkversion,
+        logversion: e.logversion },
+
+      method: "GET",
+      header: {
+        "content-type": "application/json" },
+
+      success: function success(f) {
+        if (f.data.status && "1" == f.data.status) {
+          if (f.data.lives) {
+            if ((f = f.data.lives) && 0 < f.length) {
+              f = f[0];
+              var k = {
+                city: {
+                  text: "\u57CE\u5E02",
+                  data: f.city },
+
+                weather: {
+                  text: "\u5929\u6C14",
+                  data: f.weather },
+
+                temperature: {
+                  text: "\u6E29\u5EA6",
+                  data: f.temperature },
+
+                winddirection: {
+                  text: "\u98CE\u5411",
+                  data: f.winddirection + "\u98CE" },
+
+                windpower: {
+                  text: "\u98CE\u529B",
+                  data: f.windpower + "\u7EA7" },
+
+                humidity: {
+                  text: "\u6E7F\u5EA6",
+                  data: f.humidity + "%" } };
+
+
+              k.liveData = f;
+              a.success(k);
+            }
+          } else f.data.forecasts && f.data.forecasts[0] && a.success({
+            forecast: f.data.forecasts[0] });} else
+
+        a.fail({
+          errCode: f.data.infocode,
+          errMsg: f.data.info });
+
+      },
+      fail: function fail(f) {
+        a.fail({
+          errCode: "0",
+          errMsg: f.errMsg || "" });
+
+      } });
+
+  }
+
+  function c(g) {
+    wx.request({
+      url: "https://restapi.amap.com/v3/geocode/regeo",
+      data: {
+        key: d.key,
+        location: g,
+        extensions: "all",
+        s: e.s,
+        platform: e.platform,
+        appname: d.key,
+        sdkversion: e.sdkversion,
+        logversion: e.logversion },
+
+      method: "GET",
+      header: {
+        "content-type": "application/json" },
+
+      success: function success(h) {
+        if (h.data.status && "1" == h.data.status) {
+          h = h.data.regeocode;
+          if (h.addressComponent) var f = h.addressComponent.adcode;else
+          h.aois && 0 < h.aois.length && (f = h.aois[0].adcode);
+          b(f);
+        } else a.fail({
+          errCode: h.data.infocode,
+          errMsg: h.data.info });
+
+      },
+      fail: function fail(h) {
+        a.fail({
+          errCode: "0",
+          errMsg: h.errMsg || "" });
+
+      } });
+
+  }
+  var d = this,
+  e = d.requestConfig;
+  a.city ? b(a.city) : d.getWxLocation(a, function (g) {
+    c(g);
+  });
+};
+AMapWX.prototype.getPoiAround = function (a) {
+  function b(e) {
+    e = {
+      key: c.key,
+      location: e,
+      s: d.s,
+      platform: d.platform,
+      appname: c.key,
+      sdkversion: d.sdkversion,
+      logversion: d.logversion };
+
+    a.querytypes && (e.types = a.querytypes);
+    a.querykeywords && (e.keywords = a.querykeywords);
+    wx.request({
+      url: "https://restapi.amap.com/v3/place/around",
+      data: e,
+      method: "GET",
+      header: {
+        "content-type": "application/json" },
+
+      success: function success(g) {
+        if (g.data.status && "1" == g.data.status) {
+          if ((g = g.data) && g.pois) {
+            for (var h = [], f = 0; f < g.pois.length; f++) {
+              var k = 0 ==
+              f ? a.iconPathSelected : a.iconPath;
+              h.push({
+                latitude: parseFloat(g.pois[f].location.split(",")[1]),
+                longitude: parseFloat(g.pois[f].location.split(",")[0]),
+                iconPath: k,
+                width: 22,
+                height: 32,
+                id: f,
+                name: g.pois[f].name,
+                address: g.pois[f].address });
+
+            }
+            a.success({
+              markers: h,
+              poisData: g.pois });
+
+          }
+        } else a.fail({
+          errCode: g.data.infocode,
+          errMsg: g.data.info });
+
+      },
+      fail: function fail(g) {
+        a.fail({
+          errCode: "0",
+          errMsg: g.errMsg || "" });
+
+      } });
+
+  }
+  var c = this,
+  d = c.requestConfig;
+  a.location ? b(a.location) : c.getWxLocation(a, function (e) {
+    b(e);
+  });
+};
+AMapWX.prototype.getStaticmap = function (a) {
+  function b(e) {
+    c.push("location=" + e);
+    a.zoom && c.push("zoom=" + a.zoom);
+    a.size && c.push("size=" + a.size);
+    a.scale && c.push("scale=" + a.scale);
+    a.markers && c.push("markers=" + a.markers);
+    a.labels && c.push("labels=" + a.labels);
+    a.paths && c.push("paths=" + a.paths);
+    a.traffic && c.push("traffic=" + a.traffic);
+    e = "https://restapi.amap.com/v3/staticmap?" + c.join("&");
+    a.success({
+      url: e });
+
+  }
+  var c = [];
+  c.push("key=" + this.key);
+  var d = this.requestConfig;
+  c.push("s=" + d.s);
+  c.push("platform=" + d.platform);
+  c.push("appname=" + d.appname);
+  c.push("sdkversion=" + d.sdkversion);
+  c.push("logversion=" + d.logversion);
+  a.location ? b(a.location) : this.getWxLocation(a, function (e) {
+    b(e);
+  });
+};
+AMapWX.prototype.getInputtips = function (a) {
+  var b = Object.assign({}, this.requestConfig);
+  a.location && (b.location = a.location);
+  a.keywords && (b.keywords = a.keywords);
+  a.type && (b.type = a.type);
+  a.city && (b.city = a.city);
+  a.citylimit && (b.citylimit = a.citylimit);
+  wx.request({
+    url: "https://restapi.amap.com/v3/assistant/inputtips",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(c) {
+      c && c.data && c.data.tips && a.success({
+        tips: c.data.tips });
+
+    },
+    fail: function fail(c) {
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg ||
+        "" });
+
+    } });
+
+};
+AMapWX.prototype.getDrivingRoute = function (a) {
+  var b = Object.assign({}, this.requestConfig);
+  a.origin && (b.origin = a.origin);
+  a.destination && (b.destination = a.destination);
+  a.strategy && (b.strategy = a.strategy);
+  a.waypoints && (b.waypoints = a.waypoints);
+  a.avoidpolygons && (b.avoidpolygons = a.avoidpolygons);
+  a.avoidroad && (b.avoidroad = a.avoidroad);
+  wx.request({
+    url: "https://restapi.amap.com/v3/direction/driving",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(c) {
+      c && c.data && c.data.route && a.success({
+        paths: c.data.route.paths,
+        taxi_cost: c.data.route.taxi_cost || "" });
+
+    },
+    fail: function fail(c) {
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getWalkingRoute = function (a) {
+  var b = Object.assign({}, this.requestConfig);
+  a.origin && (b.origin = a.origin);
+  a.destination && (b.destination = a.destination);
+  wx.request({
+    url: "https://restapi.amap.com/v3/direction/walking",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(c) {
+      c && c.data && c.data.route && a.success({
+        paths: c.data.route.paths });
+
+    },
+    fail: function fail(c) {
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getTransitRoute = function (a) {
+  var b = Object.assign({}, this.requestConfig);
+  a.origin && (b.origin = a.origin);
+  a.destination && (b.destination = a.destination);
+  a.strategy && (b.strategy = a.strategy);
+  a.city && (b.city = a.city);
+  a.cityd && (b.cityd = a.cityd);
+  wx.request({
+    url: "https://restapi.amap.com/v3/direction/transit/integrated",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(c) {
+      c && c.data && c.data.route && (c = c.data.route, a.success({
+        distance: c.distance || "",
+        taxi_cost: c.taxi_cost ||
+        "",
+        transits: c.transits }));
+
+    },
+    fail: function fail(c) {
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg || "" });
+
+    } });
+
+};
+AMapWX.prototype.getRidingRoute = function (a) {
+  var b = Object.assign({}, this.requestConfig);
+  a.origin && (b.origin = a.origin);
+  a.destination && (b.destination = a.destination);
+  wx.request({
+    url: "https://restapi.amap.com/v3/direction/riding",
+    data: b,
+    method: "GET",
+    header: {
+      "content-type": "application/json" },
+
+    success: function success(c) {
+      c && c.data && c.data.route && a.success({
+        paths: c.data.route.paths });
+
+    },
+    fail: function fail(c) {
+      a.fail({
+        errCode: "0",
+        errMsg: c.errMsg || "" });
+
+    } });
+
+};
+module.exports.AMapWX = AMapWX;
+
+/***/ }),
+
 /***/ 2:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -4938,7 +5630,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /*!*************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/common/api/request.js ***!
   \*************************************************************/
@@ -4946,10 +5638,10 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! @/store/index.js */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   common: {
-    baseUrl: 'http://192.168.41.44:3000/api',
+    baseUrl: 'http://192.168.41.64:3000/api',
     // baseUrl: 'http://172.17.15.68:3000/api',
     data: {},
     header: _defineProperty({
@@ -4966,8 +5658,27 @@ module.exports = g;
     options.url = this.common.baseUrl + options.url;
     options.data = options.data || this.common.data;
     options.method = options.method || this.common.method;
-    options.header = options.header || this.common.header;
+    options.header = _objectSpread(_objectSpread({},
+    this.common.header),
+    options.header);
+
+    // options.header = options.header || this.common.header
     options.dataType = options.dataType || this.common.dataType;
+
+    if (options.header.token) {
+      options.header.token = _index.default.state.user.token;
+      if (!options.header.token) {
+        uni.showToast({
+          title: '请先登录',
+          icon: 'none' });
+
+        uni.navigateTo({
+          url: '/pages/login/login' });
+
+        return Promise.reject('未登录');
+      }
+    }
+    console.log(options.header);
     return new Promise(function (res, rej) {
       uni.request(_objectSpread(_objectSpread({},
       options), {}, {
@@ -4977,6 +5688,7 @@ module.exports = g;
               uni.hideLoading();
             }, 1000);
             return rej('错误');
+
           }var
           data = result.data.data;
           setTimeout(function () {
@@ -4991,7 +5703,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 272:
+/***/ 290:
 /*!*********************************************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/components/uni/mpvue-citypicker/city-data/province.js ***!
   \*********************************************************************************************/
@@ -5141,7 +5853,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 273:
+/***/ 291:
 /*!*****************************************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/components/uni/mpvue-citypicker/city-data/city.js ***!
   \*****************************************************************************************/
@@ -6655,7 +7367,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 274:
+/***/ 292:
 /*!*****************************************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/components/uni/mpvue-citypicker/city-data/area.js ***!
   \*****************************************************************************************/
@@ -25737,7 +26449,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /*!**************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/static/imgs/order1.png ***!
   \**************************************************************/
@@ -25748,7 +26460,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /*!**************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/static/imgs/order2.png ***!
   \**************************************************************/
@@ -25759,7 +26471,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /*!**************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/static/imgs/order3.png ***!
   \**************************************************************/
@@ -25770,7 +26482,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /*!**************************************************************!*\
   !*** E:/HbuilderX/Project/projectOne/static/imgs/order4.png ***!
   \**************************************************************/

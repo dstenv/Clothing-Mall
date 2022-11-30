@@ -62,6 +62,9 @@
 	color: #939393;
 	align-items: center;
 }
+.order-good-list.data-v-c795fb94 {
+	margin-bottom: 10rpx;
+}
 .money.data-v-c795fb94 {
 	display: flex;
 	justify-content: flex-end;

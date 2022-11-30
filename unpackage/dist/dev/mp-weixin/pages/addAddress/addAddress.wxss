@@ -55,6 +55,16 @@
 	padding: 15rpx 0;
 	border-bottom: 2rpx solid #ddd;
 }
+.sel-address text.data-v-d114b534 {
+	/* display: inline-block; */
+	display: -webkit-box;
+	width: 500rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-align: end;
+}
 .icon-shangjiantou.data-v-d114b534 {
 	font-size: 38rpx;
 	-webkit-transform: rotate(90deg);

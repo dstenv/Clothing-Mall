@@ -45,7 +45,7 @@
 		},
 		onReady() {
 			const res = uni.getSystemInfoSync()
-			// console.log('123',res.platform,res.statusBarHeight)
+			console.log('123',res.platform,res.statusBarHeight)
 			this.system = res.platform
 			this.systemHeight = res.statusBarHeight
 			if(this.system === 'ios') {
@@ -55,16 +55,15 @@
 				}else {
 					// 是苹果手机
 				}
-			}else if(this.system === 'android') {
+			}else {
 				// 是安卓手机
 				this.androidMap()
-				
-			}else {
-				// 是其他 如微信小程序
 			}
-			
 		},
-		
+		onBackPress(event) {
+			console.log(event,'百度')
+			this.sendAddress()
+		},
 		methods: {
 			// web创建地图
 			webMap() {
@@ -84,6 +83,7 @@
 							console.log(self.lat, self.lng)
 							let point = new BMapGL.Point(self.lng,self.lat);
 							console.log(point)
+							self.getAddress(point)
 							
 							// //添加谷歌marker和label
 							// var markergg = new BMapGL.Marker(point);
@@ -117,6 +117,7 @@
 							bmap.addEventListener('click',(event) => {
 								// console.log(event)
 								let clickPoint = event.latlng
+								console.log(clickPoint)
 								let new_point = new BMapGL.Point(clickPoint.lng,clickPoint.lat)
 								self.movePoint(new_point)
 								// bmap.clearOverlays() // 清除之前的标注
@@ -126,21 +127,8 @@
 								// bmap.panTo(new_point) // 移动点
 								// bmap.setHeading(-20);
 								// bmap.setTilt(45);
+								self.getAddress(clickPoint)
 								
-								let geoc = new BMapGL.Geocoder();
-								console.log(geoc)
-								geoc.getLocation(clickPoint, function(rs){
-									let addComp = rs.addressComponents;
-									self.address = `${addComp.province} ${addComp.city} ${addComp.district} ${addComp.street} ${addComp.streetNumber}`
-									// let options = {
-									// 	width: 200,
-									// 	height: 60,
-									// 	title: '地址'
-									// }
-									// let infoWindow = new BMapGL.InfoWindow(`${self.address}`,options)
-									// bmap.openInfoWindow(infoWindow,new_point)
-									self.createWIndow(self.address,new_point)
-								})
 								
 							})
 						} 
@@ -159,14 +147,21 @@
 				// })
 				
 			},
-			
-			// 微信小程序创建地图
-			weChatMap() {
-				
+			// 地址逆解析
+			getAddress(clickPoint) {
+				let geoc = new BMapGL.Geocoder();
+				// console.log(geoc)
+				const self = this
+				geoc.getLocation(clickPoint, function(rs){
+					let addComp = rs.addressComponents;
+					self.address = `${addComp.province} ${addComp.city} ${addComp.district} ${addComp.street} ${addComp.streetNumber}`
+					console.log(self.address)
+					self.createWIndow(self.address,clickPoint)
+				})
 			},
-			
 			// 创建窗口
 			createWIndow(address,point) {
+				console.log('window')
 				let options = {
 					width: 200,
 					height: 60,
@@ -206,9 +201,6 @@
 				uni.redirectTo({
 					url:'/pages/addAddress/addAddress?address=' + this.address + '&id=' + this.path_id
 				})
-				// uni.navigateBack({
-					
-				// })
 			},
 			searchAddress(){
 				if(this.timer) {

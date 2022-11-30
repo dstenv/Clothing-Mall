@@ -11,7 +11,7 @@
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="wx-nav">
 			<view class="title">
-				百年奥莱
+				优衣服饰
 			</view>
 		</view>
 		<!-- #endif -->
@@ -21,7 +21,7 @@
 		<view class="h5-nav">
 			<view class="iconfont icon-dibudaohanglan-" @tap="goSearch"></view>
 			<view class="title">
-				百年奥莱
+				优衣服饰
 			</view>
 			<view class="iconfont icon-xiaoxi"></view>
 		</view>
