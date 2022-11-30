@@ -59,8 +59,5 @@
       "desc": "获取当前位置用于排列展示"
     }
   },
-  "requiredPrivateInfos": [
-    "getLocation"
-  ],
   "usingComponents": {}
 }

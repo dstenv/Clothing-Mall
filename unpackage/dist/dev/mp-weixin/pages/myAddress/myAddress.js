@@ -134,10 +134,8 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
       this.isEdit = !this.isEdit;
     }
   },
-  onShow: function onShow() {
+  onShow: function onShow() {var _this = this;
     uni.removeStorageSync('formData');
-  },
-  activated: function activated() {var _this = this;
     _request.default.request({
       url: '/address/find',
       data: {
@@ -147,6 +145,16 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
       _this.addressList = res;
     });
   },
+  // activated() {
+  // 	http.request({
+  // 		url: '/address/find',
+  // 		data: {
+  // 			uid: this.uid
+  // 		}
+  // 	}).then(res => {
+  // 		this.addressList = res
+  // 	})
+  // },
   onLoad: function onLoad(event) {var _this2 = this;
     if (event.type === 'confirm') {
       this.isFromConfirm = true;

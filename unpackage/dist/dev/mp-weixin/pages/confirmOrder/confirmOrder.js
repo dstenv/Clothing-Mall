@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _request = _interopRequireDefault(__webpack_require__(/*! @/common/api/request.js */ 23));
 
-var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var MyLine = function MyLine() {__webpack_require__.e(/*! require.ensure | components/common/Line */ "components/common/Line").then((function () {return resolve(__webpack_require__(/*! @/components/common/Line.vue */ 250));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var orderItem = function orderItem() {__webpack_require__.e(/*! require.ensure | components/common/orderItem */ "components/common/orderItem").then((function () {return resolve(__webpack_require__(/*! @/components/common/orderItem.vue */ 302));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var MyLine = function MyLine() {__webpack_require__.e(/*! require.ensure | components/common/Line */ "components/common/Line").then((function () {return resolve(__webpack_require__(/*! @/components/common/Line.vue */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var orderItem = function orderItem() {__webpack_require__.e(/*! require.ensure | components/common/orderItem */ "components/common/orderItem").then((function () {return resolve(__webpack_require__(/*! @/components/common/orderItem.vue */ 303));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
@@ -210,14 +210,23 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
       goodIds: [] };
 
   },
-  activated: function activated() {var _this = this;
-    // this.getDefaultAddress()
+  onShow: function onShow() {var _this = this;
+
     uni.$on('sendSelAddress', function (data) {
       _this.defaultPath = data;
-      console.log(_this.defaultPath);
+      console.log('默认地址', _this.defaultPath, typeof _this.defaultPath);
+    });
+
+  },
+  activated: function activated() {var _this2 = this;
+    // this.getDefaultAddress()
+    // this.getDefaultAddress()
+    uni.$on('sendSelAddress', function (data) {
+      _this2.defaultPath = data;
+      console.log('默认地址', _this2.defaultPath, typeof _this2.defaultPath);
     });
   },
-  onLoad: function onLoad(event) {var _this2 = this;
+  onLoad: function onLoad(event) {var _this3 = this;
     if (event.selId) {
       this.goodIds = JSON.parse(event.selId);
       console.log(this.goodIds);
@@ -226,8 +235,8 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
     uni.getSystemInfo({
       success: function success(res) {
         console.log(res.windowHeight);
-        _this2.dataClientHeight = res.windowHeight - uni.upx2px(110) - _this2.getClientHeight();
-        console.log(_this2.dataClientHeight);
+        _this3.dataClientHeight = res.windowHeight - uni.upx2px(110) - _this3.getClientHeight();
+        console.log(_this3.dataClientHeight);
       } });
 
     this.getDefaultAddress();
@@ -244,9 +253,9 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
     selectedList: function selectedList(state) {return state.cart.selected;} })),
 
   (0, _vuex.mapGetters)(['controlData'])), {}, {
-    goodItems: function goodItems() {var _this3 = this;
+    goodItems: function goodItems() {var _this4 = this;
       return this.goodIds.map(function (g) {
-        return _this3.list.filter(function (l) {return l.id == g;})[0];
+        return _this4.list.filter(function (l) {return l.id == g;})[0];
       });
     },
     goodTotal: function goodTotal() {
@@ -273,11 +282,11 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
       }
     },
     // 获取默认地址,如果没有则获取第一个地址
-    getDefaultAddress: function getDefaultAddress() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    getDefaultAddress: function getDefaultAddress() {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _request.default.request({
                     url: '/address/default',
                     data: {
-                      uid: _this4.uid } }));case 2:_this4.defaultPath = _context.sent;case 3:case "end":return _context.stop();}}}, _callee);}))();
+                      uid: _this5.uid } }));case 2:_this5.defaultPath = _context.sent;case 3:case "end":return _context.stop();}}}, _callee);}))();
 
 
 
@@ -292,7 +301,7 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
         url: '/pages/myAddress/myAddress?type=confirm' });
 
     },
-    goPayment: function goPayment() {var _this5 = this;
+    goPayment: function goPayment() {var _this6 = this;
       if (!this.defaultPath.id) {
         return uni.showToast({
           title: '您还没有选择收货地址',
@@ -322,7 +331,7 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
           console.log('修改订单状态成功');
           uni.navigateTo({
             url: '/pages/payment/payment?detail=' + JSON.stringify({
-              price: Math.round(_this5.controlData.total * 100) / 100,
+              price: Math.round(_this6.controlData.total * 100) / 100,
               nameList: nameList }) });
 
 

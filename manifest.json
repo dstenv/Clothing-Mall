@@ -92,9 +92,9 @@
             "scope.userLocation" : {
                 "desc" : "获取当前位置用于排列展示"
             }
-        },
+        }
 		// 微信小程序开启定位 应用在app时需删除
-		"requiredPrivateInfos": ["getLocation"]
+		// "requiredPrivateInfos": ["getLocation"]
     },
     "mp-alipay" : {
         "usingComponents" : true

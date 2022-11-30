@@ -744,6 +744,7 @@ router.post('/api/pay/alipay', async function(req,res,next) {
 	  { formData: formData },
 	);
 	
+	
 	res.send({
 		code: 200,
 		data: {
@@ -757,6 +758,8 @@ router.post('/api/pay/alipay', async function(req,res,next) {
 router.post('/api/pay/wxpay', async function(req,res,next) {
 	let { oid,price,nameList } = req.body
 	nameList = JSON.parse(nameList)
+	
+	
 })
 
 // 修改订单支付状态

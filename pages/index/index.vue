@@ -8,6 +8,7 @@
 			</view>
 			<view class="iconfont icon-xiaoxi"></view>
 		</view> -->
+		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="wx-nav">
 			<view class="title">

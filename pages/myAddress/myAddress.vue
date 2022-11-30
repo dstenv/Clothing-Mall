@@ -56,8 +56,6 @@
 		},
 		onShow() {
 			uni.removeStorageSync('formData')
-		},
-		activated() {
 			http.request({
 				url: '/address/find',
 				data: {
@@ -67,6 +65,16 @@
 				this.addressList = res
 			})
 		},
+		// activated() {
+		// 	http.request({
+		// 		url: '/address/find',
+		// 		data: {
+		// 			uid: this.uid
+		// 		}
+		// 	}).then(res => {
+		// 		this.addressList = res
+		// 	})
+		// },
 		onLoad(event) {
 			if(event.type === 'confirm') {
 				this.isFromConfirm = true

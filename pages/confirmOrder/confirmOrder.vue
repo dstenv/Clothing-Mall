@@ -3,7 +3,7 @@
 		<MyLine />
 		<view class="path" @tap="goAddress">
 			<view class="iconfont icon-shouhuodizhi"></view>
-			<view class="path-info" v-if="defaultPath">
+			<view class="path-info" v-if="defaultPath && defaultPath.phone">
 				<view class="path-user">
 					<text class="recievename">收货人：{{defaultPath.recievename}}</text>
 					<text>{{defaultPath.phone}}</text>
@@ -67,11 +67,20 @@
 				goodIds: [],
 			}
 		},
+		onShow() {
+			// #ifdef MP-WEIXIN
+			uni.$on('sendSelAddress', (data) => {
+				this.defaultPath = data
+				console.log('默认地址',this.defaultPath,typeof this.defaultPath)
+			})
+			// #endif
+		},
 		activated() {
+			// this.getDefaultAddress()
 			// this.getDefaultAddress()
 			uni.$on('sendSelAddress', (data) => {
 				this.defaultPath = data
-				console.log(this.defaultPath)
+				console.log('默认地址',this.defaultPath,typeof this.defaultPath)
 			})
 		},
 		onLoad(event) {

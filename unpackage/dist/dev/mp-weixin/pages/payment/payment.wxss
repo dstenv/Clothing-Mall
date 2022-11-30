@@ -1,4 +1,9 @@
 
+.pay-page.data-v-031d9d14 {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
 .payment-type.data-v-031d9d14 {
 	display: flex;
 	justify-content: space-evenly;
@@ -48,5 +53,34 @@
 	color: #fff;
 	padding: 0 70rpx;
 	line-height: 100rpx;
+}
+.popup.data-v-031d9d14 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .7);
+}
+.no-pay.data-v-031d9d14 {
+	display: inline-block;
+	padding: 5rpx 20rpx;
+	border: 2rpx solid red;
+	border-radius: 999px;
+	color: red;
+	font-size: 34rpx;
+	font-weight: bold;
+	margin-bottom: 40rpx;
+}
+.custom-qrcode.data-v-031d9d14 {
+	width: 100vw;
+	height: 100vw;
 }
 

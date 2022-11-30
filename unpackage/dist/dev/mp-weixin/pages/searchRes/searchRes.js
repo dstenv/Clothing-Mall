@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var goodList = function goodList() {Promise.all(/*! require.ensure | components/common/goodList */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/goodList")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/goodList.vue */ 271));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var goodList = function goodList() {Promise.all(/*! require.ensure | components/common/goodList */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/goodList")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/goodList.vue */ 272));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

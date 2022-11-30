@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="pay-page">
 		<!-- #ifdef APP-PLUS -->
 		<uniNavBar
 			title="确认支付" fixed="true" statusBar="true"
@@ -48,6 +48,13 @@
 				</label>
 			</view>
 		</label>
+	
+		<view class="popup" v-if="showPay">
+			<text class="no-pay" @tap="showPay = !showPay">取消支付</text>
+			<view style="position: relative;" >
+				<image :src="qrCodeImage" class="custom-qrcode" />
+			</view>
+		</view>
 		
 		<view class="pay-foot">
 			<view class="total">
@@ -64,16 +71,19 @@
 <script>
 	import uniNavBar from '@/components/uni/uni-nav-bar/uni-nav-bar.vue'
 	import http from '@/common/api/request.js'
+	import Qrcode from 'qrious'
 	import { mapState } from 'vuex'
 	export default {
 		data() {
 			return {
 				detail: {},
 				payType: true,
+				showPay: false,
+				qrCodeImage: ''
 			}
 		},
 		components:{
-			uniNavBar
+			uniNavBar,
 		},
 		onLoad(event) {
 			if(event.detail) {
@@ -89,6 +99,19 @@
 			exit() {
 				console.log('关闭')
 				uni.navigateBack()
+			},
+			getQriousCode(value) {
+				this.showPay = true;
+				let qr = new Qrcode({
+					value,
+					background:'white', // 背景色
+					foreground:'#000' ,// 二维码颜色
+					level:'L', // 二维码复杂程度
+					size: 375 ,// 尺寸大小
+					mime:'image/png' // 图片类型
+				});
+				this.qrCodeImage = qr.toDataURL();
+				console.log('二维码图片',this.qrCodeImage)
 			},
 			pay() {
 				// 支付
@@ -113,13 +136,15 @@
 						nameList: JSON.stringify(this.detail.nameList)
 					}
 				}).then(res => {
-					console.log('支付',res)
+					console.log('支付',res.payUrl)
 					// #ifdef H5
-					window.open(res.payUrl)
+					// window.open(res.payUrl)
 					// window.location.href = res.payUrl
+					this.getQriousCode(res.payUrl)
 					// #endif
 					
 					// #ifdef APP-PLUS
+					// this.getQriousCode(res.payUrl)
 					plus.runtime.openURL( res.payUrl );
 					// #endif
 					
@@ -131,6 +156,11 @@
 </script>
 
 <style scoped>
+.pay-page {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
 .payment-type {
 	display: flex;
 	justify-content: space-evenly;
@@ -180,5 +210,34 @@
 	color: #fff;
 	padding: 0 70rpx;
 	line-height: 100rpx;
+}
+.popup {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .7);
+}
+.no-pay {
+	display: inline-block;
+	padding: 5rpx 20rpx;
+	border: 2rpx solid red;
+	border-radius: 999px;
+	color: red;
+	font-size: 34rpx;
+	font-weight: bold;
+	margin-bottom: 40rpx;
+}
+.custom-qrcode {
+	width: 100vw;
+	height: 100vw;
 }
 </style>

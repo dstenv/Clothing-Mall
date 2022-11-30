@@ -199,7 +199,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/api/reque
 //
 //
 //
-var MyLine = function MyLine() {__webpack_require__.e(/*! require.ensure | components/common/Line */ "components/common/Line").then((function () {return resolve(__webpack_require__(/*! @/components/common/Line.vue */ 250));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { hotKeys: [], keywords: '', // 最近搜索的搜索词
+var MyLine = function MyLine() {__webpack_require__.e(/*! require.ensure | components/common/Line */ "components/common/Line").then((function () {return resolve(__webpack_require__(/*! @/components/common/Line.vue */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { hotKeys: [], keywords: '', // 最近搜索的搜索词
       haveSearch: [] };}, components: { MyLine: MyLine }, onNavigationBarButtonTap: function onNavigationBarButtonTap(event) {if (event.float === 'right') {this.search(this.keywords);}}, onNavigationBarSearchInputConfirmed: function onNavigationBarSearchInputConfirmed(event) {if (event.target.id === "1") {this.search(this.keywords);}}, onNavigationBarSearchInputChanged: function onNavigationBarSearchInputChanged(event) {if (event.text.trim() != '') {this.keywords = event.text;}}, onLoad: function onLoad() {var _this = this;uni.getStorage({ key: "searchData", success: function success(res) {_this.haveSearch = JSON.parse(res.data);
       } });
 

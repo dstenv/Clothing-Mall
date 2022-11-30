@@ -9660,7 +9660,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "uni-view",
-    { attrs: { _i: 0 } },
+    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
       _c("uniNavBar", {
         attrs: { _i: 1 },
@@ -9780,23 +9780,56 @@ var render = function() {
         ],
         1
       ),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-        [
-          _c(
+      _vm._$g(18, "i")
+        ? _c(
             "uni-view",
-            { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                {
+                  staticClass: _vm._$g(19, "sc"),
+                  attrs: { _i: 19 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [_vm._v("取消支付")]
+              ),
+              _c(
+                "uni-view",
+                { staticStyle: { position: "relative" }, attrs: { _i: 20 } },
+                [
+                  _c("v-uni-image", {
+                    staticClass: _vm._$g(21, "sc"),
+                    attrs: { src: _vm._$g(21, "a-src"), _i: 21 }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+        [
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
                 [_vm._v("合计：")]
               ),
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                [_vm._v("￥" + _vm._$g(21, "t0-0"))]
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                [_vm._v("￥" + _vm._$g(25, "t0-0"))]
               )
             ],
             1
@@ -9804,8 +9837,8 @@ var render = function() {
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(22, "sc"),
-              attrs: { _i: 22 },
+              staticClass: _vm._$g(26, "sc"),
+              attrs: { _i: 26 },
               on: {
                 click: function($event) {
                   return _vm.$handleViewEvent($event)
@@ -9911,7 +9944,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.payment-type[data-v-08d42738] {\r\n\tdisplay: flex;\r\n\tjustify-content: space-evenly;\r\n\talign-items: center;\r\n\tborder-bottom: 2rpx solid #ddd;\n}\n.iconfont[data-v-08d42738] {\r\n\tfont-size: 80rpx;\n}\n.payment-text[data-v-08d42738] {\r\n\tposition: relative;\r\n\tleft: -20rpx;\r\n\twidth: 300rpx;\n}\n.payment-text uni-text[data-v-08d42738] {\r\n\tdisplay: block;\n}\n.type[data-v-08d42738] {\r\n\tfont-size: 30rpx;\r\n\tfont-weight: bold;\n}\n.type-desc[data-v-08d42738] {\r\n\tfont-size: 24rpx;\r\n\tcolor: #8b8b8b;\n}\n.pay-foot[data-v-08d42738] {\r\n\tposition: fixed;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.total[data-v-08d42738] {\r\n\tflex: 1;\r\n\tpadding-left: 30rpx;\r\n\tbackground-color: #000;\r\n\tline-height: 100rpx;\n}\n.total-price[data-v-08d42738] {\r\n\tfont-size: 32rpx;\r\n\tcolor: #fff;\n}\n.go-pay[data-v-08d42738] {\r\n\tflex: none;\r\n\tcolor: #fff;\r\n\tpadding: 0 70rpx;\r\n\tline-height: 100rpx;\n}\r\n", ""]);
+exports.push([module.i, "\n.pay-page[data-v-08d42738] {\r\n\tposition: relative;\r\n\twidth: 100vw;\r\n\theight: 100vh;\n}\n.payment-type[data-v-08d42738] {\r\n\tdisplay: flex;\r\n\tjustify-content: space-evenly;\r\n\talign-items: center;\r\n\tborder-bottom: 2rpx solid #ddd;\n}\n.iconfont[data-v-08d42738] {\r\n\tfont-size: 80rpx;\n}\n.payment-text[data-v-08d42738] {\r\n\tposition: relative;\r\n\tleft: -20rpx;\r\n\twidth: 300rpx;\n}\n.payment-text uni-text[data-v-08d42738] {\r\n\tdisplay: block;\n}\n.type[data-v-08d42738] {\r\n\tfont-size: 30rpx;\r\n\tfont-weight: bold;\n}\n.type-desc[data-v-08d42738] {\r\n\tfont-size: 24rpx;\r\n\tcolor: #8b8b8b;\n}\n.pay-foot[data-v-08d42738] {\r\n\tposition: fixed;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.total[data-v-08d42738] {\r\n\tflex: 1;\r\n\tpadding-left: 30rpx;\r\n\tbackground-color: #000;\r\n\tline-height: 100rpx;\n}\n.total-price[data-v-08d42738] {\r\n\tfont-size: 32rpx;\r\n\tcolor: #fff;\n}\n.go-pay[data-v-08d42738] {\r\n\tflex: none;\r\n\tcolor: #fff;\r\n\tpadding: 0 70rpx;\r\n\tline-height: 100rpx;\n}\n.popup[data-v-08d42738] {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\tbottom: 0;\r\n\tright: 0;\r\n\tz-index: 99;\r\n\theight: 100%;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\tbackground: rgba(0, 0, 0, .7);\n}\n.no-pay[data-v-08d42738] {\r\n\tdisplay: inline-block;\r\n\tpadding: 5rpx 20rpx;\r\n\tborder: 2rpx solid red;\r\n\tborder-radius: 999px;\r\n\tcolor: red;\r\n\tfont-size: 34rpx;\r\n\tfont-weight: bold;\r\n\tmargin-bottom: 40rpx;\n}\n.custom-qrcode[data-v-08d42738] {\r\n\twidth: 100vw;\r\n\theight: 100vw;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
